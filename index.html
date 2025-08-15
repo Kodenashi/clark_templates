@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPCC Templates</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://kodenashi.github.io/Templates/assets/PPCCLOGO.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="template-selector-container" id="templateSelector">
+
+            <div class="logo-slot">
+                <img src="https://kodenashi.github.io/Templates/assets/PPCCLOGO2.png" alt="Logo">
+            </div>
+
+            <h1 class="selector-title" style="font-size:30px;">PPCC Templates</h1>
+            <p class="selector-subtitle">Select a template from the list below</p>
+
+            <div class="selector-card">
+                <select id="templateDropdown" class="template-dropdown">
+                    <option value="">-- Select a Template --</option>
+                    <option value="leadershipEscalation">Leadership Escalation</option>
+                    <option value="lblModification">LBL Modification</option>
+                    <option value="obcxCallback">OBCX Callback Request</option>
+                    <option value="refundRequest">Refund Request</option>
+                </select>
+            </div>
+        </div>
+
+
+        <!-- Leadership Escalation Template -->
+        <div id="leadershipEscalation" class="template hidden">
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <h1>Leadership Escalation</h1>
+            <form id="issueForm">
+                <fieldset>
+                    <legend>Account details</legend>
+                    <label>Name: <input type="text" name="name"></label>
+                    <label>Phone number: <input type="text" name="phone"></label>
+                    <label>Domain name or preview link: <input type="text" name="domain"></label>
+                    <label>I-Case: <input type="text" name="icase"></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Issue summary</legend>
+                    <textarea name="issueSummary" rows="3" placeholder="Describe the issue..."></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Expectations set with the client</legend>
+                    <label for="expectedResolution">Expected Resolution:</label>
+                    <textarea id="expectedResolution" name="expectedResolution" rows="2" placeholder="Expected resolution..."></textarea>
+                    <label for="providedSolutions">Alt Solutions Provided:</label>
+                    <textarea id="providedSolutions" name="providedSolutions" rows="2" placeholder="Expectations/alt-solutions provided..."></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Next steps</legend>
+                    <input type="text" name="nextSteps" placeholder="Call out, Email, or Expedite">
+                </fieldset>
+            </form>
+            <div class="preview-container">
+                <h2>Preview</h2>
+                <pre id="preview"></pre>
+                <div class="buttons">
+                    <button type="button" id="copyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+                    <button type="reset" id="resetBtn" class="btn btn-reset">♻ Reset</button>
+                </div>
+            </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
+        </div>
+
+        <!-- LBL Modification Template -->
+        <div id="lblModification" class="template hidden">
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <h1>LBL Modification</h1>
+            <form id="lblForm">
+                <h2 style="color:red; text-align:center;">Subject should be: <br>CPROD: xxxxxxxx | LBL Request </h2>
+                <label>CPROD: <input type="text" name="cprod"></label>
+                <label>Body: <textarea name="body" rows="2"></textarea></label>
+                <label>Business name: <input type="text" name="businessName"></label>
+                <div id="changeRequests"></div>
+                <button type="button" id="addChangeBtn" class="btn btn-add">➕ Add Change Request</button>
+            </form>
+            <div class="preview-container">
+                <h2>Preview</h2>
+                <pre id="lblPreview"></pre>
+                <div class="buttons">
+                    <button type="button" id="lblCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+                    <button type="reset" id="lblResetBtn" class="btn btn-reset">♻ Reset</button>
+                </div>
+            </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
+        </div>
+
+        <!-- OBCX Callback Request Template -->
+        <div id="obcxCallback" class="template hidden">
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <h1>OBCX Callback Request</h1>
+            <form id="obcxForm">
+                <label>Customer name: <input type="text" name="customerName"></label>
+                <label>Customer contact number: <input type="text" name="customerContact"></label>
+                <label>OBCX/OB-case/Pega case number: <input type="text" name="caseNumber"></label>
+                <label>OBCX agent requested: <input type="text" name="agentRequested"></label>
+                <label>2-hour callback time frame: <input type="text" name="callbackTime"></label>
+                <label>Brief Notes:</label>
+                <textarea name="briefNotes" rows="3" placeholder="Summary of discussion or concern"></textarea>
+            </form>
+            <div class="preview-container">
+                <h2>Preview</h2>
+                <pre id="obcxPreview"></pre>
+                <div class="buttons">
+                    <button type="button" id="obcxCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+                    <button type="reset" id="obcxResetBtn" class="btn btn-reset">♻ Reset</button>
+                </div>
+            </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
+        </div>
+
+        <!-- Refund Request Template -->
+        <div id="refundRequest" class="template hidden">
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <h1>Refund Request</h1>
+            <form id="refundForm">
+                <label>URL: <input type="text" name="url"></label>
+                <label>Customer Name: <input type="text" name="customerName"></label>
+                <label>Reason for refund request:</label>
+                <textarea name="refundReason" rows="4" placeholder="Include dates, limitations, expectations, etc."></textarea>
+                <label>Products: <input type="text" name="products"></label>
+                <label>Open work-cases: <input type="text" name="openCases"></label>
+            </form>
+            <div class="preview-container">
+                <h2>Preview</h2>
+                <pre id="refundPreview"></pre>
+                <div class="buttons">
+                    <button type="button" id="refundCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+                    <button type="reset" id="refundResetBtn" class="btn btn-reset">♻ Reset</button>
+                </div>
+            </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
