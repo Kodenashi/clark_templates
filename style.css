@@ -1,13 +1,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    background: url("https://kodenashi.github.io/clark_templates/assets/onepiece.jfif") no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 
-/* Main container with soft depth */
 .container {
     background: #fff;
     padding: 24px;
