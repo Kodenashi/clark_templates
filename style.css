@@ -1,0 +1,220 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main container with soft depth */
+.container {
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    max-width: 500px; 
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Logo area */
+.logo-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.logo-slot img {
+    max-width: 120px;
+    display: block;
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #2b2b2b;
+    font-weight: 700;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Form elements */
+input, textarea, select {
+    width: 100%;
+    padding: 9px 11px;
+    margin-top: 4px;
+    border: 1px solid #ccd1d8;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    background: #fff;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #3a8ef6;
+    background-color: #f9fbff;
+    box-shadow: 0 0 6px rgba(58,142,246,0.3);
+}
+
+/* Textarea */
+textarea {
+    min-height: 55px;
+    resize: vertical;
+}
+
+/* Preview section */
+.preview-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+.preview-container:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 13px;
+    background: #1e1e1e;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    max-height: 140px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+}
+
+/* Button row */
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Button colors */
+.btn-copy { background: #28a745; }
+.btn-copy:hover { background: #218838; }
+
+.btn-reset { background: #dc3545; }
+.btn-reset:hover { background: #c82333; }
+
+.btn-add { background: #17a2b8; }
+.btn-add:hover { background: #117a8b; }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container { max-width: 350px; }
+}
+
+@media (max-width: 480px) {
+    .container { max-width: 300px; padding: 18px; }
+    input, textarea, select, button {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+}
+
+/* Smooth fade-in when page loads */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth fade-in for template switch */
+@keyframes fadeTemplate {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.template-content {
+    animation: fadeTemplate 0.4s ease forwards;
+}
+
+/* Dropdown glow effect */
+select:focus {
+    background-color: #f0f8ff;
+    border-color: #3a8ef6;
+    box-shadow: 0 0 8px rgba(58, 142, 246, 0.4);
+}
+
+/* Click pulse effect */
+@keyframes smoothSelect {
+    0% { background-color: #eaf4ff; }
+    100% { background-color: #fff; }
+}
+
+select:active { animation: smoothSelect 0.6s ease; }
+
+/* Container pulse effect */
+@keyframes pulseHighlight {
+    0% { box-shadow: 0 0 0 rgba(58,142,246,0.4); }
+    50% { box-shadow: 0 0 20px rgba(58,142,246,0.3); }
+    100% { box-shadow: 0 0 0 rgba(58,142,246,0); }
+}
+
+.container.pulse {
+    animation: pulseHighlight 0.6s ease;
+}
+
+/* Field grouping */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+.hidden {
+  display: none !important;
+}
